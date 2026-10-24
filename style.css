@@ -1,0 +1,66 @@
+/* Expensy's site: the app's dark and brass look, a light version, system fonts only (no outside requests). */
+:root {
+  --bg: #09090B; --card: #16161B; --cardTop: #1F1F25; --line: rgba(255, 255, 255, .09);
+  --t1: #F4F2EE; --t2: #A3A2A8; --t3: #85848D; --brass: #D9B46A; --brassBright: #E8C97E; --brassSoft: #2A2416; --ink: #151208;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #F5F3EE; --card: #FFFFFF; --cardTop: #FFFFFF; --line: rgba(0, 0, 0, .08);
+    --t1: #16151A; --t2: #5E5D65; --t3: #6F6E76; --brass: #8A672A; --brassBright: #DFBC6E; --brassSoft: #F3EAD5; --ink: #1C1507;
+    color-scheme: light;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--t1); line-height: 1.6;
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--brass); text-underline-offset: 3px; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+header.top { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+.brand { display: flex; align-items: center; gap: 12px; color: var(--t1); text-decoration: none; font-weight: 800; font-size: 20px; letter-spacing: -.2px; }
+.mark { width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center; color: var(--ink); background: linear-gradient(160deg, var(--brassBright), var(--brass)); box-shadow: 0 6px 18px rgba(168, 130, 62, .35); }
+nav a { color: var(--t2); text-decoration: none; font-weight: 600; font-size: 15px; margin-left: 18px; }
+nav a:hover { color: var(--t1); }
+.hero { padding: 48px 0 28px; }
+.hero h1 { font-size: clamp(34px, 6vw, 54px); line-height: 1.08; letter-spacing: -1.2px; margin: 0 0 16px; }
+.hero h1 span { color: var(--brass); }
+.hero p.lead { font-size: 19px; color: var(--t2); max-width: 620px; margin: 0 0 26px; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pills span { font-size: 14px; font-weight: 700; color: var(--t2); background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; }
+.status { margin-top: 22px; font-size: 15px; color: var(--t3); }
+h2 { font-size: 26px; letter-spacing: -.4px; margin: 54px 0 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.card { background: linear-gradient(180deg, var(--cardTop), var(--card)); border: 1px solid var(--line); border-radius: 22px; padding: 20px; }
+.card h3 { margin: 0 0 6px; font-size: 17px; }
+.card p { margin: 0; color: var(--t2); font-size: 15px; }
+.story { font-size: 19px; color: var(--t2); border-left: 3px solid var(--brass); padding: 4px 0 4px 18px; margin: 0; max-width: 680px; }
+.story + .sig { color: var(--t3); font-size: 15px; margin: 10px 0 0 21px; }
+footer { margin: 64px 0 0; padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--t3); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+footer a { color: var(--t2); }
+/* the privacy policy */
+.doc { max-width: 720px; }
+.doc h1 { font-size: clamp(30px, 5vw, 42px); letter-spacing: -.8px; margin: 34px 0 6px; }
+.doc .date { color: var(--t3); font-size: 15px; margin: 0 0 22px; }
+.doc .short { background: var(--brassSoft); border-radius: 18px; padding: 16px 20px; margin: 0 0 8px; }
+.doc .short ul { margin: 6px 0 0; padding-left: 20px; }
+.doc h2 { font-size: 22px; margin: 38px 0 10px; }
+.doc h3 { font-size: 17px; margin: 22px 0 6px; }
+.doc p, .doc li { color: var(--t2); }
+.doc li { margin: 4px 0; }
+.doc strong { color: var(--t1); }
+.doc table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 8px 0; }
+.doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--line); color: var(--t2); }
+.doc th { color: var(--t1); font-weight: 700; }
+@media (max-width: 560px) { nav a { margin-left: 12px; } .hero { padding-top: 28px; } }
+/* On a phone the table's rows stack, so nothing runs off the screen. */
+@media (max-width: 640px) {
+  .doc table, .doc tbody, .doc tr, .doc td { display: block; width: 100%; }
+  .doc tr:first-child { display: none; }
+  .doc tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .doc td { border: 0; padding: 2px 0; }
+  .doc td:last-child::before { content: "Stays: "; color: var(--t3); }
+}
+.doc code { overflow-wrap: anywhere; }
